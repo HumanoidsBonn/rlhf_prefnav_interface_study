@@ -1,6 +1,8 @@
 # rlhf_prefnav_interface_study
 Code repository for the publication "The Impact of VR and 2D Interfaces on Human Feedback in Preference-Based Robot Learning" by Jorge de Heuvel, Daniel Marta, Simon Holk, Iolanda Leite, and Maren Bennewitz, in Proceedings of IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025.
 
+Paper website: https://www.hrl.uni-bonn.de/publications/2025/deheuvel2025iros_impact
+
 ## Setup  
 
 ### Prerequisites  
