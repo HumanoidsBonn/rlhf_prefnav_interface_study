@@ -1,0 +1,60 @@
+# Experiment names and paths
+# ===================================================================================================
+project_name: KTH_Collab
+experiment_group: ''
+experiment_name: ''
+experiment_notes: Train from scratch baseline, mixed rewards, original scale. Offset to make reward model a penalty.
+demonstration_experiment_name: ''
+run_name: ''
+
+# RL config
+# ===================================================================================================
+agent: TD3
+total_timesteps: 500_000
+learning_rate: 0.0001
+batch_size: 256
+buffer_size: 500_000
+learning_starts: 25_000
+train_freq: 1
+gamma: 0.99
+tau: 0.005
+#net_arch: [128, 128]
+action_noise:
+  mean: [0.0, 0.0]
+  sigma: [0.2, 0.2]
+save_chkpt_freq_steps: 20_000
+
+# ALIGNMENT CONFIG
+# ===================================================================================================
+condition: 2D_FPV
+
+#HumanRewardModelWrapper
+reward_scale: 1
+reward_offset: 0
+reward_scale_old: 1
+reward_model_balance: 0.2
+
+# Evaluation config
+# ===================================================================================================
+eval_freq_steps: 20_000
+n_eval_episodes: 10
+log_interval: 10
+
+# Wrapper
+# ===================================================================================================
+wrapper:
+  ScanMinPoolingWrapper:
+    lidar_n_blocks: &lidar_n_blocks 30
+    reduce_last_dim: False
+  DictStateFlattenWrapper:
+    none: none
+
+# Feature Extractor
+# ===================================================================================================
+
+
+# Environment config
+# ===================================================================================================
+env_type: base
+policy: MultiInputPolicy
+config_gibson: __igibson_configs__/RLHFStudy_v2.yaml

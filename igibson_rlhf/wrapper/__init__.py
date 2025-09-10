@@ -1,0 +1,1 @@
+from .observation_wrapper.min_pool_rays import MinPoolRays
